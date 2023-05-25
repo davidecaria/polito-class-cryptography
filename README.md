@@ -1,2 +1,2 @@
-# Exercises from Cryptography class of PoliTos
+# Exercises from Cryptography class of PoliTo
  
