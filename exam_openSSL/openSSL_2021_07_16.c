@@ -28,7 +28,7 @@ int envelop_MAC(RSA *rsa_keypair,
 
 int main(){
 
-    
+
 
     return 0;
 }
@@ -49,7 +49,6 @@ int envelop_MAC(RSA *rsa_keypair, char *message, int message_len, char *key, int
         concatenated[i]=key[j];
         i++;
     }
-
 
     md = EVP_MD_CTX_new();
 
