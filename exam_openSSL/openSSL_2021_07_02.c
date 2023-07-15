@@ -1,3 +1,12 @@
+/*
+The specification of the NONCENSE protocol includes the following operations:
+1) generate a random 256-bit number, name it r1
+2) generate a random 256-bit number, name it r2
+3) obtain a key by XOR-ing the two random numbers r1 and r2, name it key_symm
+4) generate an RSA keypair of at least 2048 bit modulus
+5) Encrypt the generated RSA keypair using AES-256 with key_symm and obtain the payload.
+Implement in C the protocol steps described above, make the proper decisions when the protocol omits information.
+*/
 #include <openssl/rsa.h>
 #include <openssl/err.h>
 #include <openssl/evp.h>
