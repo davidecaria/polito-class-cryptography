@@ -195,7 +195,7 @@ if __name__ == '__main__':
     print(len(ciphertext))
     c = []
     p = []
-    for i in range(0, AES.block_size):
+    for i in range(AES.block_size-2, AES.block_size):
         plaintext[0:0] = guess_byte_first_block(
             p, c, ciphertext, AES.block_size)
     # plaintext[0:0] = plain
