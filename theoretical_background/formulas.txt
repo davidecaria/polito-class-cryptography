@@ -1,0 +1,105 @@
+#### Week - 1
+
+Example of ciphers:
+1. Vernam cipher -> C = Enc_k(P) = P XOR k
+2. Caesar cipher -> C = Enc_k(P) = P SWC k / P = SWK (-k) (swc sum with carry)
+3. Rotate cipher -> C = Enc_k(P) = P <<< k / P = C <<< -k
+
+#### Week - 2
+
+Lehmer generator: 
+    s0 = send
+    s_i+1 = a*s_i + b (mod m) i=0,1,...
+
+Galois LFSR:
+    Same as Fibonacci but L has the p in the last row
+
+#### Week - 3
+
+#### Week - 4
+
+#### Week - 5
+
+#### Week - 6
+
+#### Week - 7
+
+#### Week - 8
+
+#### Week - 9
+
+Diffie-Hellman (DH):
+    Alice:
+        A = {1,...,p-1}
+        g^A mod p
+        Alice sends g^A
+    
+    Bob:
+        B = {1,...,p-1}
+        g^B mod p
+        Bob send g^B
+    Alice:
+        receives g^B
+        K_a = (g^B)^A
+    Bob:
+        K_b = (g^A)^B
+
+RSA:
+    Choose p,q (prime of l bits), compute N = p*q and phi(N) = (p-1)(q-1)
+    Pick e in Z_phi(n) and compute d = e^-1 mod phi(N)
+    Set pk = (N,e)
+    Set sk = (phi(N),d)
+
+    Enc_pk(m) -> C = m^e mod N
+    Dec_sk(C) -> m = C^d mod N
+
+#### Week - 10
+
+DSA Generation:
+    pick prime p with 2^1023 < p < 2^1024
+    find a prime divisor of q of p-1
+    find a with ord(a)=q i.e. a generates the subgroup with q elements
+    choose a random integer d with 0<d<q
+    compute b = a^d mod p
+    the keys are: k_pub = (p,q,a,b) k_pr = (d)
+
+DSA Sign:
+    choose an integer as randmon ephemeral key k_e with 0 < k_e < q
+    compute r = (a^k_e mod p) mod q
+    compute s = (SHA(x) + d*r)*k_e^-1 mod q
+
+DSV Verify:
+    compute w = s^-1 mod q
+    compute u1 = w*SHA(x) mod q
+    compute u2 = w*r mod q
+    compute v = (a^u1*(b^u2 mod p)) mod q
+    
+    v = r mod q => valid
+    v != r mod q => not valid
+
+
+#### Week - 11
+
+#### Week - 12
+
+ECDH:
+    Alice:
+        picks A in {2,...,#E-1}
+        compute pA = A*G = (xA,yA)
+        sends pA
+    Bob:
+        picl B in {2,...,#E-1}
+        compute pB = B*G = (xB,yB)
+        send pB
+        computes Kb = B*pA
+    Alice:
+        computes Ka = A*pB
+
+    K = Ka = Kb
+    A and B are private keys whilst pA,pB are the public keys
+
+#### Week - 13
+
+#### Week - 14
+
+
